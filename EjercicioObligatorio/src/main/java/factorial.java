@@ -16,7 +16,7 @@ public class factorial {
             return MAYOR;
         } else {    
             Long temp = 1l;
-            for (int i = 0; i <= numero; i++) {
+            for (int i = 1; i <= numero; i++) {
                 temp *= i;
                 resultado[i] = temp;
             }
@@ -46,7 +46,7 @@ public class factorial {
                 }
                 else{
                 Long temp = 1l;
-                for (int i = 0; i <= numero[j]; i++) {
+                for (int i = 1; i <= numero[j]; i++) {
                     temp *= i;
                     resultado = temp;
                 }

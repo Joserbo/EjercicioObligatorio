@@ -15,8 +15,8 @@ public class factorialTest {
         int numero = -1;
         factorial factorial1 = new factorial();
         Object resultado = factorial1.factorial(numero);
-        
-        assertEquals("Esta función solo acepta números positivos o cero!!!", resultado);
+        assertTrue(resultado instanceof String);
+        assertEquals("Esta función solo acepta números positivos o cero!!!", resultado.toString());
     }
     
     @Test
@@ -26,8 +26,12 @@ public class factorialTest {
         factorial factorial1 = new factorial();
         Object resultado = factorial1.factorial(numero);
         double esperado = 9999999999d;
-        assertEquals(esperado, resultado);
+        assertTrue(resultado instanceof Double);
+        //assertEquals(esperado, Double.parseDouble(resultado.toString()));
+        assertTrue(esperado == Double.parseDouble(resultado.toString()));
     }
+    
+    
     
     @Test
     public void testFactorial_numero3() {
@@ -47,6 +51,17 @@ public class factorialTest {
         double esperado = 9999999999d;
         assertEquals(esperado, resultado);
     }
-
+    
+    @Test
+    public void testFactorial_numero5() {
+        System.out.println("un arreglo entre 0 y 100");
+        int[] numero = {1,2,3,4};
+        factorial factorial1 = new factorial();
+        Object resultado = factorial1.factorial(numero);
+        Long[] esperado = {1l,2l,6l,24l};
+        assertTrue(resultado instanceof Long[]);
+        assertArrayEquals(esperado, (Long[]) resultado);
+    }
+       
     
 }
