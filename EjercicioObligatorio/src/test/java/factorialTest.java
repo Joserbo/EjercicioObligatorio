@@ -25,10 +25,9 @@ public class factorialTest {
         int numero = 101;
         factorial factorial1 = new factorial();
         Object resultado = factorial1.factorial(numero);
-        double esperado = 9999999999d;
-        assertTrue(resultado instanceof Double);
-        //assertEquals(esperado, Double.parseDouble(resultado.toString()));
-        assertTrue(esperado == Double.parseDouble(resultado.toString()));
+        Long esperado = 9999999999l;
+        assertTrue(resultado instanceof Long);
+        assertTrue(esperado == Long.parseLong(resultado.toString()));
     }
     
     
@@ -39,7 +38,8 @@ public class factorialTest {
         int[] numero = {-1,2,3};
         factorial factorial1 = new factorial();
         Object resultado = factorial1.factorial(numero);
-        assertEquals("Esta función solo acepta números positivos o cero!!!", resultado);
+        assertTrue(resultado instanceof String);
+        assertEquals("Esta función solo acepta números positivos o cero!!!", resultado.toString());
     }
 
     @Test
@@ -48,20 +48,54 @@ public class factorialTest {
         int[] numero = {101,2,3};
         factorial factorial1 = new factorial();
         Object resultado = factorial1.factorial(numero);
-        double esperado = 9999999999d;
-        assertEquals(esperado, resultado);
+        Long esperado = 9999999999l;
+        assertTrue(resultado instanceof Long);
+        assertTrue(esperado == Long.parseLong(resultado.toString()));
     }
     
     @Test
     public void testFactorial_numero5() {
-        System.out.println("un arreglo entre 0 y 100");
-        int[] numero = {1,2,3,4};
+        System.out.println("un arreglo entre 0 y 100, (numeros mandados son 0,1,2,3,4)");
+        int[] numero = {0,1,2,3,4};
         factorial factorial1 = new factorial();
         Object resultado = factorial1.factorial(numero);
-        Long[] esperado = {1l,2l,6l,24l};
+        Long[] esperado = {1l,1l,2l,6l,24l};
         assertTrue(resultado instanceof Long[]);
         assertArrayEquals(esperado, (Long[]) resultado);
     }
        
+    
+    @Test
+    public void testFactorial_numero6() {
+        System.out.println("un numero entero entre 0 y 100");
+        int numero = 3;
+        factorial factorial1 = new factorial();
+        Object resultado = factorial1.factorial(numero);
+        Long esperado = 6l;
+        assertTrue(resultado instanceof Long);
+        assertTrue(esperado == Long.parseLong(resultado.toString()));
+    }
+    
+    @Test
+    public void testFactorial_numero7() {
+        System.out.println("un numero entero entero 1");
+        int numero = 1;
+        factorial factorial1 = new factorial();
+        Object resultado = factorial1.factorial(numero);
+        Long esperado = 1l;
+        assertTrue(resultado instanceof Long);
+        assertTrue(esperado == Long.parseLong(resultado.toString()));
+    }
+    
+    @Test
+    public void testFactorial_numero8() {
+        System.out.println("un numero entero 0");
+        int numero = 0;
+        factorial factorial1 = new factorial();
+        Object resultado = factorial1.factorial(numero);
+        Long esperado = 1l;
+        assertTrue(resultado instanceof Long);
+        assertTrue(esperado == Long.parseLong(resultado.toString()));
+    }
     
 }
